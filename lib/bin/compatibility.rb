@@ -37,5 +37,27 @@ module Bin
         yield
       end
     end
+  else
+    class Compatibility
+      def write(key, value, options=nil, &block)
+        yield
+      end
+
+      def read(key, options=nil, &block)
+        yield
+      end
+
+      def delete(key, options=nil, &block)
+        yield
+      end
+
+      def delete_matched(matcher, options=nil, &block)
+        yield
+      end
+
+      def exist?(key, options=nil, &block)
+        yield
+      end
+    end
   end
 end
