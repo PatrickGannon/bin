@@ -3,7 +3,7 @@ gem 'activesupport', ENV['ACTIVE_SUPPORT_VERSION']
 $:.unshift(File.expand_path('../../lib', __FILE__))
 
 require 'bin'
-require 'spec'
+require 'rspec'
 
 connection = Mongo::Connection.new
 DB = connection.db('bin-store-test')
