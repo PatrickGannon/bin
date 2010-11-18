@@ -1,9 +1,16 @@
 # encoding: UTF-8
 module Bin
   class Store < Compatibility
-    attr_reader :collection, :options
+    attr_reader :options
 
-    def initialize(collection, options={})
+    def collection
+      if defined? MongoMapper
+        @collection ||= MongoMapper.database.collection("cache_store")
+      end
+      @collection
+    end
+
+    def initialize(collection=nil, options={})
       @collection, @options = collection, options
     end
 
